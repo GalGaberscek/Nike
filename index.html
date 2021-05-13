@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike</title>
+</head>
+<style>
+    #okno {
+        border: dashed black 4px;
+        height: 70%;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        font-size: 40px;
+        padding-top: 10px;
+        line-height: 100px;
+        background-color: white;
+    }
+
+    #button {
+        width: 16.6%;
+        height: 7%;
+        margin: 20px;
+    }
+    #img{
+        margin: auto;
+    }
+    #ozadje{
+        background-image: url(grey.jpg);
+        height: 100%;
+        margin: -5px;
+        padding-top: 20px;
+    }
+</style>
+
+<body>
+    <div id="ozadje">
+        <div id="okno">
+            <b>IZBERI TIP LOGOTIPA</b>
+            <br />
+            <button onclick="slika()" id="button">svg</button> <button
+                onclick="slika2()" id="button">javascript</button> <button onclick="slika3()" id="button">slika</button>
+            <div id="bezier">
+                <canvas id="myCanvas10" width="330" height="250"></canvas>
+                <script>
+                    var c = document.getElementById("myCanvas10");
+                    var ctx = c.getContext("2d");
+                    var canvas = document.getElementById('myCanvas10');
+                    var width = canvas.width * 0.003;
+                    var height = canvas.height * 0.005;
+                    var endx = 65, endy = 50, startx = 280, starty = 50;
+                    ctx.beginPath();
+                    ctx.scale(width, height);
+
+                    ctx.moveTo(startx, starty);
+                    ctx.bezierCurveTo(65, 140, 0, 140, endx, endy,);
+                    ctx.bezierCurveTo(50, 110, 110, 90, startx, starty);
+                    ctx.stroke();
+                    ctx.fillstyle = "black";
+                    ctx.fill();
+                </script>
+            </div>
+            <div id="svg">
+                <svg id="logo3" width="300" height="300">
+                    <path d=" M 110, 70 C 18, 189, 192, 124, 276, 65, M 276, 65 C 190, 96, 83, 139,110, 70" fill="black"
+                        stroke="black" /></svg>
+            </div>
+            <div id="img"><img src="nikelogo.png" alt="NikeLogo" height="200" width="300"></div>
+            <script>
+                var y = document.getElementById("svg");
+                var z = document.getElementById("bezier");
+                var x = document.getElementById("img");
+                x.style.display = "none";
+                y.style.display = "none";
+                z.style.display = "none";
+
+                function slika() {
+
+                    if (y.style.display === "none") {
+                        y.style.display = "block";
+                        x.style.display = "none";
+                        z.style.display = "none";
+
+                    }
+                }
+                function slika2() {
+
+                    if (z.style.display === "none") {
+                        z.style.display = "block";
+                        y.style.display = "none";
+                        x.style.display = "none";
+
+                    }
+                }
+                function slika3() {
+
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                        y.style.display = "none";
+                        z.style.display = "none";
+
+                    }
+                }
+
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>
